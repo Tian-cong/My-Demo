@@ -14,6 +14,10 @@ import io.reactivex.disposables.Disposable;
  * emitter 发射器
  * disposable 一次性的
  */
+
+/**
+ * Observable<T> 能够发射0或n个数据，并以成功或错误事件终止
+ */
 public class MyRxjava {
 
 

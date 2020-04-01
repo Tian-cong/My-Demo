@@ -29,6 +29,15 @@ public class MyColdRxjava {
                         .subscribe(emitter::onNext);
             }
         }).observeOn(Schedulers.newThread()).publish();
+
+        //lambda
+        Observable<Long> observable1 = Observable.create(emitter -> {
+            Observable.interval(10, TimeUnit.MILLISECONDS,
+                    Schedulers.computation())
+                    .take(Integer.MAX_VALUE)
+                    .subscribe(emitter::onNext);
+        });
+
         /**
          *
          * publish
