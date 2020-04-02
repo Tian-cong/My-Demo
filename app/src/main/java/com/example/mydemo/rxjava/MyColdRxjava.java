@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Scheduler;
 import io.reactivex.observables.ConnectableObservable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -46,6 +47,12 @@ public class MyColdRxjava {
          */
 
         ((ConnectableObservable<Long>) observable).connect();
+
+        ConnectableObservable<String> connectableObservable = (ConnectableObservable) Observable.create(emitter -> {
+            emitter.onNext("ssss");
+        }).observeOn(Schedulers.newThread()).publish();
+
+        connectableObservable.connect();
 
 
         observable.subscribe(new io.reactivex.functions.Consumer<Long>() {
