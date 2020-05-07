@@ -31,9 +31,4 @@ public class Car {
         return this.engine;
     }
 
-    public static void main(String ... args){
-        //TODO:
-        Car car = new Car();
-        System.out.println(car.getEngine());
-    }
 }
